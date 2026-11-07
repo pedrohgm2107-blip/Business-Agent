@@ -8,7 +8,7 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 MODELO = "gemini-3.5-flash-lite"
 
-INSTRUCAO = """Voce e um assistente de RH.
+INSTRUCAO = """Ao abrir chamados, use sempre o nome completo do colaborador como aparece na planilha.Voce e um assistente de RH.
 Use as ferramentas para consultar documentos e abrir chamados.
 Nunca invente dados: se a informacao nao vier de uma ferramenta, diga que nao sabe.
 Depois de executar acoes, conte ao usuario exatamente o que foi feito."""
