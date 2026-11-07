@@ -52,7 +52,16 @@ def abrir_chamado(colaborador: str, assunto: str) -> dict:
         json.dump(chamados, f, ensure_ascii=False, indent=2)
     return chamado
 
-
+def resumo() -> dict:
+    """Resume a situacao: total de documentos, quantos estao OK e quantos incompletos."""
+    docs = _ler_planilha()
+    incompletos = [d for d in docs if d["status"] == "INCOMPLETO"]
+    return {
+        "total": len(docs),
+        "ok": len(docs) - len(incompletos),
+        "incompletos": len(incompletos),
+    }
+    
 if __name__ == "__main__":
     for item in listar_incompletos():
         print(item)
